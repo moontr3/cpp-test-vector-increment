@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <gtest/gtest.h>
 
 // function
 std::vector<int> incrementVector(std::vector<int> vec, int n) {
@@ -16,13 +17,7 @@ int main() {
     int n = 10;
 
     testVector = incrementVector(testVector, n);
+    ASSERT_EQ(testVector, targetVector);
 
-    for(int index; index < testVector.size(); index++) {
-        if (targetVector[index] != testVector[index]) {
-            std::cerr << "Test failed" << std::endl;
-            return 1;
-        }
-    }
-    std::cout << "Test passed" << std::endl;
     return 0;
 }
